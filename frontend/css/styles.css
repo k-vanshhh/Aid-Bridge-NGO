@@ -407,7 +407,7 @@ background-clip: text;
     .login-form-container {
         margin: 0 auto;
         max-width: 500px;
-    }
+    }  
 }
 
 @media (max-width: 768px) {
@@ -447,4 +447,217 @@ background-clip: text;
 .shadow-hover:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+/* Enhanced Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Toggle Button */
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background: rgba(79, 70, 229, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Chevron Icon */
+.dropdown-toggle i {
+    font-size: 0.75rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown.active .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Active Toggle State */
+.dropdown.active .dropdown-toggle {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+}
+
+/* Dropdown Menu Container */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 220px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem;
+}
+
+/* Active Menu State */
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    margin: 0.2rem 0;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect for Items */
+.dropdown-item:hover {
+    background: var(--primary-gradient);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Dropdown Menu Arrow */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Item Icons (if you want to add icons to menu items) */
+.dropdown-item i {
+    margin-right: 0.75rem;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Subtle line between items */
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Animation for showing menu items */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown.active .dropdown-item {
+    animation: slideIn 0.3s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.05s);
+}
+
+/* Ripple effect on click */
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, white 10%, transparent 10.01%);
+    transform: scale(10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+}
+
+.dropdown-item:active::after {
+    transform: scale(0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+
+    .dropdown.active .dropdown-menu {
+        transform: none;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-item {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .dropdown-item:hover {
+        transform: none;
+        background: rgba(79, 70, 229, 0.1);
+        color: var(--primary-color);
+    }
+}
+
+/* Additional hover effects for the nav links */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }

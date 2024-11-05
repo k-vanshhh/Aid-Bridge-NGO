@@ -8,31 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+        
 </head>
 <body>
     <div class="hero-section">
-        <div class="topbar-two">
-            <div class="container">
-                <div class="topbar-two__inner">
-                    <ul class="topbar-two__info">
-                        <li>
-                            <span class="topbar-two__info__icon"><i class="icofont-envelope"></i></span>
-                            <a href="mailto:pjain_be22@thapar.edu" target = ".">AidBridge.ngo</a>
-                        </li>
-                        <li>
-                            <span class="topbar-two__info__icon"><i class="icofont-location-pin"></i></span>
-                            <a target = "." href="https://www.google.com/maps/place/Thapar+Institute+of+Engineering+%26+Technology/@30.3529984,76.3691008,14z/data=!4m6!3m5!1s0x391028ab86533db5:0x93cc1f72eae1c9a8!8m2!3d30.3564242!4d76.3647012!16zL20vMDd3bGJ4?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D">Thapar University, Patiala</a>
-                        </li>
-                    </ul><!-- /.topbar-two__info -->
-                    <ul class="list-unstyled topbar-two__nav">
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                    </ul><!-- /.topbar-two__nav -->
-                </div><!-- /.topbar-two__inner -->
-            </div><!-- /.container -->
-        </div><!-- /.topbar-two -->
-        
         <div class="particles-bg"></div>
         <nav class="nav-transparent">
             <div class="nav-content">
@@ -40,12 +20,47 @@
                     <div class="logo-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <span class="logo-text">Aid Bridge</span>
+                    <a href="../index.html" class="logo-text">Aid Bridge</a>
                 </div>
                 <div class="nav-links">
-                    <a href="#impact" class="nav-link">Our Impact</a>
-                    <a href="#causes" class="nav-link">Causes</a>
-                    <a href="pages/faq.html" class="nav-link">FAQs</a>
+                    <a href="/pages/about.html" class="nav-link">About Us</a>
+                    
+                    <!-- Pages Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Pages <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/event-details" class="dropdown-item">
+                            <i class="fas fa-calendar-alt"></i> Event Details
+                        </a>
+                        <a href="/volunteer" class="dropdown-item">
+                            <i class="fas fa-hand-holding-heart"></i> Become a Volunteer
+                        </a>
+                        <a href="pages/faq.html" class="dropdown-item">
+                            <i class="fas fa-question-circle"></i> FAQ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Donations Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Donations <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="pages/donation_details.html" class="dropdown-item">
+                            <i class="fas fa-info-circle"></i> Donation Details
+                        </a>
+                        <a href="/donate-now" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Donate Now
+                        </a>
+                    </div>
+                </div>
+
+                    
+                    
+                    <a href="#causes" class="nav-link">Contact Us</a>
                     <a href="pages/register.html" class="nav-cta pulse-animation">Join Us <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -88,99 +103,132 @@
                     <div class="testimonial-slider">
                         <div class="testimonial-card active">
                             <p>"Aid Bridge made it incredibly easy to support causes I care about."</p>
-                            <div class="testimonial-author">
-                                <img src="/api/placeholder/40/40" alt="Sarah" class="author-image">
-                                <div class="author-info">
-                                    <span class="author-name">Sarah Johnson</span>
-                                    <span class="author-title">Regular Donor</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="login-form-container floating-effect">
-                    <div class="login-form-content">
-                        <div class="form-header">
-                            <i class="fas fa-user-circle"></i>
-                            <h2 class="form-title">Welcome Back</h2>
-                            <p class="form-subtitle">Continue your journey of giving</p>
+                <div class="login-form-container floating-effect" style="display: flex; justify-content: center; align-items: center; padding: 40px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 500px; width: 90%; margin: auto;">
+                    <div class="login-form-content" style="width: 100%; text-align: center;">
+                        <div class="form-header" style="margin-bottom: 25px;">
+                            <i class="fas fa-user-circle" style="font-size: 48px; color: #4CAF50;"></i>
+                            <h2 class="form-title" style="margin: 10px 0; color: #333; font-weight: 600;">Welcome Back</h2>
+                            <p class="form-subtitle" style="color: #777; font-size: 14px;">Continue your journey of giving</p>
                         </div>
-                        
-                        <form id="loginForm" class="auth-form">
-                            <div id="error-message" class="error-message hidden"></div>
+                
+                        <form id="loginForm" class="auth-form" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div id="error-message" class="error-message hidden" style="color: #e74c3c; display: none; margin-bottom: 10px; font-size: 13px;"></div>
                             
-                            <div class="form-group">
-                                <label for="email" class="form-label">
-                                    <i class="fas fa-envelope"></i> Email
+                            <div class="form-group" style="text-align: left;">
+                                <label for="email" class="form-label" style="color: #555; font-weight: 500;">
+                                    <i class="fas fa-envelope" style="margin-right: 8px; color: #4CAF50;"></i> Email
                                 </label>
-                                <input id="email" type="email" required class="form-input" placeholder="Enter your email">
+                                <input id="email" type="email" required class="form-input" placeholder="Enter your email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
                             </div>
-
-                            <div class="form-group">
-                                <label for="password" class="form-label">
-                                    <i class="fas fa-lock"></i> Password
+                
+                            <div class="form-group" style="text-align: left;">
+                                <label for="password" class="form-label" style="color: #555; font-weight: 500;">
+                                    <i class="fas fa-lock" style="margin-right: 8px; color: #4CAF50;"></i> Password
                                 </label>
-                                <input id="password" type="password" required class="form-input" placeholder="Enter your password">
+                                <input id="password" type="password" required class="form-input" placeholder="Enter your password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
                             </div>
-
-                            <button type="submit" class="submit-btn">
+                
+                            <button type="submit" class="submit-btn" style="padding: 12px; background-color: #4CAF50; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background-color 0.3s ease;">
                                 Sign In
-                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <i class="fas fa-arrow-right btn-icon" style="margin-left: 5px;"></i>
                             </button>
                         </form>
-
-                        <div class="form-divider">
+                
+                        <div class="form-divider" style="margin: 20px 0; font-size: 14px; color: #aaa;">
                             <span>OR</span>
                         </div>
-
-                        <div class="social-login">
-                            <button class="google-btn">
-                                <i class="fab fa-google"></i>
-                                Continue with Google
+                
+                        <div class="social-login" style="margin-bottom: 20px;">
+                            <button class="google-btn" style="padding: 12px; background-color: #db4437; color: #fff; border: none; border-radius: 8px; width: 100%; cursor: pointer; font-size: 16px; font-weight: 600; transition: background-color 0.3s ease;">
+                                <i class="fab fa-google" style="margin-right: 8px;"></i> Continue with Google
                             </button>
                         </div>
-
-                        <p class="form-footer">
+                
+                        <p class="form-footer" style="font-size: 14px; color: #555;">
                             New to Aid Bridge? 
-                            <a href="pages/register.html" class="text-link">Create an account <i class="fas fa-arrow-right"></i></a>
+                            <a href="pages/register.html" class="text-link" style="color: #4CAF50; text-decoration: none; font-weight: 600;">Create an account <i class="fas fa-arrow-right"></i></a>
                         </p>
                     </div>
                 </div>
+                
+                
             </div>
         </div>
     </div>
 
-    <section id="causes" class="causes-section">
-        <div class="section-container">
-            <h2 class="section-title">Popular Causes</h2>
-            <div class="causes-grid">
-                <div class="cause-card">
-                    <div class="cause-image education"></div>
-                    <div class="cause-content">
-                        <h3>Education</h3>
-                        <p>Support children's education worldwide</p>
-                    </div>
-                </div>
-                <div class="cause-card">
-                    <div class="cause-image healthcare"></div>
-                    <div class="cause-content">
-                        <h3>Healthcare</h3>
-                        <p>Provide medical aid to those in need</p>
-                    </div>
-                </div>
-                <div class="cause-card">
-                    <div class="cause-image food"></div>
-                    <div class="cause-content">
-                        <h3>Food Security</h3>
-                        <p>Fight hunger in communities</p>
-                    </div>
-                </div>
-            </div>
+    <!-- FOOTER -->
+
+    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 14px;">
+        <div style="margin-bottom: 10px;">
+            <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
+            <a href="./pages/contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
+            <a href="./pages/faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
+            <a href="pages/register.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Join Us</a>
         </div>
-    </section>
+        <div style="margin-bottom: 10px;">
+            <span>&copy; Thapar University, All rights reserved.</span>
+        </div>
+        <div style="font-size: 12px;">
+            <span>Follow us on</span>
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </footer>
+
+
+
+    <!-- JAVA SCRIPT -->
 
     <script src="js/auth.js"></script>
     <script src="js/animations.js"></script>
+    <script>
+    // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all dropdown toggles
+            const dropdowns = document.querySelectorAll('.dropdown');
+        
+            // Add click event to each dropdown
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+        
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+        </script>
 </body>
 </html>
