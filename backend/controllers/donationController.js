@@ -1,21 +1,21 @@
 const Donation = require('../models/Donation');
 
-exports.createDonation = async (req, res) => {
-  try {
-    const donation = await Donation.create({
-      donor: req.user.id,
-      ...req.body,
-      transactionId: 'TXN_' + Date.now()
-    });
+// exports.createDonation = async (req, res) => {
+//   try {
+//     const donation = await Donation.create({
+//       donor: req.user.id,
+//       ...req.body,
+//       transactionId: 'TXN_' + Date.now()
+//     });
 
-    res.status(201).json({
-      success: true,
-      donation
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+//     res.status(201).json({
+//       success: true,
+//       donation
+//     });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 
 exports.getAllDonations = async (req, res) => {
   try {
@@ -26,6 +26,38 @@ exports.getAllDonations = async (req, res) => {
     res.json({
       success: true,
       donations
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+
+// Create a new donation
+exports.createDonation = async (req, res) => {
+  try {
+    const { name, amount, category, description } = req.body.product;
+    console.log(`${name}, ${amount}, ${category}, ${description}, ${req.user.id}`); 
+    
+    // Create a new donation with the product structure
+    const donation = await Donation.create({
+      donor: req.user.id,
+      product: {
+        name,
+        amount,
+        category,
+        description
+      },
+       // Optional message field
+      transactionId: 'TXN_' + Date.now() // Unique transaction ID
+    });
+
+    console.log(donation); 
+
+    res.status(201).json({
+      success: true,
+      donation
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

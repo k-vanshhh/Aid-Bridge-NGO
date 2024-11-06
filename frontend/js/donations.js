@@ -12,13 +12,14 @@ function formatDate(dateString) {
     });
 }
 
-// Format amount to currency
+// Format amount to currency (Indian Rupee)
 function formatCurrency(amount) {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-IN', {
         style: 'currency',
-        currency: 'USD'
+        currency: 'INR'
     }).format(amount);
 }
+
 
 // Create donation card HTML
 function createDonationCard(donation) {
@@ -26,9 +27,9 @@ function createDonationCard(donation) {
         <div class="donation-card">
             <div class="flex justify-between items-start">
                 <div>
-                    <span class="category-badge ${donation.category}">${donation.category}</span>
-                    <p class="mt-2 text-lg font-semibold">${formatCurrency(donation.amount)}</p>
-                    ${donation.message ? `<p class="mt-1 text-gray-600">${donation.message}</p>` : ''}
+                    <span class="category-badge ${donation.product.name}">${donation.product.name}</span>
+                    <p class="mt-2 text-lg font-semibold">${formatCurrency(donation.product.amount)}</p>
+                    ${donation.product.description ? `<p class="mt-1 text-gray-600">${donation.product.description}</p>` : ''}
                 </div>
                 <div class="text-right">
                     <p class="text-sm text-gray-500">${formatDate(donation.createdAt)}</p>
@@ -42,6 +43,7 @@ function createDonationCard(donation) {
 // Load donations
 async function loadDonations() {
     const token = localStorage.getItem('token');
+    // console.log(token); 
     const donationsList = document.getElementById('donationsList');
     const totalDonatedElement = document.querySelector('.total-donated'); // Element for total donated amount
     const donationCountElement = document.querySelector('.donation-count'); // Element for donation count
@@ -50,6 +52,7 @@ async function loadDonations() {
         const response = await fetch(`${API_URL}/donations/my-donations`, {
             headers: {
                 'Authorization': `Bearer ${token}`
+                
             }
         });
 
@@ -57,7 +60,7 @@ async function loadDonations() {
         
         if (data.success) {
             // Calculate the total amount and count of donations
-            let totalAmount = data.donations.reduce((sum, donation) => sum + donation.amount, 0);
+            let totalAmount = data.donations.reduce((sum, donation) => sum + donation.product.amount, 0);
             let donationCount = data.donations.length;
 
             // Update total donated amount
@@ -89,6 +92,17 @@ if (donationForm) {
     donationForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
+
+        // Get form values and print them to the console
+        const name = document.getElementById('name').value;
+        
+        console.log("Product Name:", name);
+        const amount = document.getElementById('amount').value;
+        console.log("Amount:", amount);
+        const category = document.getElementById('category').value;
+        console.log("Category:", category);
+        const description = document.getElementById('description').value;
+        console.log("Description:", description);
         
         try {
             const response = await fetch(`${API_URL}/donations`, {
@@ -98,9 +112,12 @@ if (donationForm) {
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    amount: Number(document.getElementById('amount').value),
-                    category: document.getElementById('category').value,
-                    message: document.getElementById('message').value
+                    product: {
+                        name: name,
+                        amount: amount,
+                        category: category,
+                        description: description
+                    },
                 })
             });
 
@@ -113,14 +130,44 @@ if (donationForm) {
                 alert('Failed to create donation. Please try again.');
             }
         } catch (error) {
-            alert('An error occurred. Please try again.');
+            alert(error);
         }
     });
 }
 
-// Load donations on page load
+// Load donations on pae load
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('dashboard')) {
         loadDonations();
     }
 });
+
+
+// Add this JavaScript to your existing scripts
+function openPaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+}
+
+function closePaymentModal() {
+    const modal = document.getElementById('paymentModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function handleCheckout() {
+    // Add your payment processing logic here
+    alert('Processing payment...');
+    closePaymentModal();
+}
+
+// Close modal when clicking outside the payment container
+document.getElementById('paymentModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closePaymentModal();
+    }
+});
+
+// Add this to your existing donation button
+document.querySelector('.donation-form button').addEventListener('click', openPaymentModal);

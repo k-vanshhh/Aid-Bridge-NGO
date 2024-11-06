@@ -6,16 +6,27 @@ const donationSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  amount: {
-    type: Number,
-    required: true,
-    min: 0
-  },
-  category: {
-    type: String,
-    required: true,
-    enum: ['food', 'education', 'healthcare', 'shelter']
-  },
+  
+
+  product: {
+    name: {
+      type: String,
+      required: true
+    },
+    amount: {
+      type: Number,
+      required: true
+    },
+    category: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    }
+  }, 
+   
   paymentStatus: {
     type: String,
     enum: ['pending', 'completed', 'failed'],
@@ -25,10 +36,7 @@ const donationSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  message: {
-    type: String,
-    trim: true
-  },
+  
   createdAt: {
     type: Date,
     default: Date.now

@@ -7,9 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   
-        
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="hero-section">
@@ -20,18 +18,18 @@
                     <div class="logo-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <a href="../index.html" class="logo-text">Aid Bridge</a>
+                    <a href="./index.html" class="logo-text" style="font-size:xx-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-style: bold;">Aid Bridge</a>
                 </div>
-                <div class="nav-links">
-                    <a href="/pages/about.html" class="nav-link">About Us</a>
+                <div class="nav-links" >
+                    <a href="./pages/about.html" class="nav-link">About Us</a>
                     
                     <!-- Pages Dropdown -->
                 <div class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
+                    <a href="#" class="nav-link dropdown-toggle" style="margin-right: -20px;">
                         Pages <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="/event-details" class="dropdown-item">
+                        <a href="./pages/event-details" class="dropdown-item">
                             <i class="fas fa-calendar-alt"></i> Event Details
                         </a>
                         <a href="/volunteer" class="dropdown-item">
@@ -45,14 +43,14 @@
 
                 <!-- Donations Dropdown -->
                 <div class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
+                    <a href="#" class="nav-link dropdown-toggle" style="margin-right: -20px;">
                         Donations <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a href="pages/donation_details.html" class="dropdown-item">
                             <i class="fas fa-info-circle"></i> Donation Details
                         </a>
-                        <a href="/donate-now" class="dropdown-item">
+                        <a href="./index.html" class="dropdown-item">
                             <i class="fas fa-heart"></i> Donate Now
                         </a>
                     </div>
@@ -60,8 +58,8 @@
 
                     
                     
-                    <a href="#causes" class="nav-link">Contact Us</a>
-                    <a href="pages/register.html" class="nav-cta pulse-animation">Join Us <i class="fas fa-arrow-right"></i></a>
+                    <a href="pages/contact_us.html" class="nav-link" >Contact Us</a>
+                    <a href="pages/register.html" class="nav-cta pulse-animation" >Join Us <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </nav>
@@ -107,50 +105,74 @@
                     </div>
                 </div>
 
-                <div class="login-form-container floating-effect" style="display: flex; justify-content: center; align-items: center; padding: 40px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 500px; width: 90%; margin: auto;">
-                    <div class="login-form-content" style="width: 100%; text-align: center;">
-                        <div class="form-header" style="margin-bottom: 25px;">
-                            <i class="fas fa-user-circle" style="font-size: 48px; color: #4CAF50;"></i>
-                            <h2 class="form-title" style="margin: 10px 0; color: #333; font-weight: 600;">Welcome Back</h2>
-                            <p class="form-subtitle" style="color: #777; font-size: 14px;">Continue your journey of giving</p>
+                <div class="login-form-container floating-effect">
+                    <div class="form-background"></div>
+                    <div class="login-form-content">
+                        <div class="form-header">
+                            <div class="icon-container">
+                                <div class="logo-content">
+                                    <!-- Replace fa-user-circle with a bridge icon -->
+                                    <i class="fas fa-hands-helping bridge-icon" style="margin-top: 5px;"></i>
+                                    <span class="logo-text" style="margin-top: -15px;">Aid<br>Bridge</span>
+                                </div>
+                            </div>
+                            <h2 class="form-title slide-in">Welcome Back</h2>
+                            <p class="form-subtitle fade-in">Continue your journey of giving</p>
                         </div>
                 
-                        <form id="loginForm" class="auth-form" style="display: flex; flex-direction: column; gap: 15px;">
-                            <div id="error-message" class="error-message hidden" style="color: #e74c3c; display: none; margin-bottom: 10px; font-size: 13px;"></div>
+                        <form id="loginForm" class="auth-form">
+                            <div id="error-message" class="error-message hidden"></div>
                             
-                            <div class="form-group" style="text-align: left;">
-                                <label for="email" class="form-label" style="color: #555; font-weight: 500;">
-                                    <i class="fas fa-envelope" style="margin-right: 8px; color: #4CAF50;"></i> Email
+                            <div class="form-group slide-in">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope"></i> Email
                                 </label>
-                                <input id="email" type="email" required class="form-input" placeholder="Enter your email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+                                <input id="email" type="email" required class="form-input" 
+                                       placeholder="Enter your email">
+                                <div class="input-highlight"></div>
                             </div>
                 
-                            <div class="form-group" style="text-align: left;">
-                                <label for="password" class="form-label" style="color: #555; font-weight: 500;">
-                                    <i class="fas fa-lock" style="margin-right: 8px; color: #4CAF50;"></i> Password
+                            <div class="form-group slide-in">
+                                <label for="password" class="form-label">
+                                    <i class="fas fa-lock"></i> Password
                                 </label>
-                                <input id="password" type="password" required class="form-input" placeholder="Enter your password" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+                                <input id="password" type="password" required class="form-input" 
+                                       placeholder="Enter your password">
+                                <div class="input-highlight"></div>
                             </div>
                 
-                            <button type="submit" class="submit-btn" style="padding: 12px; background-color: #4CAF50; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background-color 0.3s ease;">
-                                Sign In
-                                <i class="fas fa-arrow-right btn-icon" style="margin-left: 5px;"></i>
+                            <button type="submit" class="submit-btn scale-in">
+                                <span class="button-content">
+                                    <span class="button-text">Sign In</span>
+                                    <span class="button-icon">
+                                        <i class="fas fa-arrow-right btn-icon"></i>
+                                    </span>
+                                </span>
+                                <span class="button-background"></span>
+                                <span class="button-particles">
+                                    <span class="particle-1"></span>
+                                    <span class="particle-2"></span>
+                                    <span class="particle-3"></span>
+                                    <span class="particle-4"></span>
+                                </span>
                             </button>
                         </form>
                 
-                        <div class="form-divider" style="margin: 20px 0; font-size: 14px; color: #aaa;">
+                        <div class="form-divider fade-in">
                             <span>OR</span>
                         </div>
                 
-                        <div class="social-login" style="margin-bottom: 20px;">
-                            <button class="google-btn" style="padding: 12px; background-color: #db4437; color: #fff; border: none; border-radius: 8px; width: 100%; cursor: pointer; font-size: 16px; font-weight: 600; transition: background-color 0.3s ease;">
-                                <i class="fab fa-google" style="margin-right: 8px;"></i> Continue with Google
+                        <div class="social-login slide-in">
+                            <button class="google-btn" style="background-color: rgba(252, 248, 235, 0.366);">
+                                <i class="fab fa-google" ></i> Continue with Google
                             </button>
                         </div>
                 
-                        <p class="form-footer" style="font-size: 14px; color: #555;">
+                        <p class="form-footer fade-in">
                             New to Aid Bridge? 
-                            <a href="pages/register.html" class="text-link" style="color: #4CAF50; text-decoration: none; font-weight: 600;">Create an account <i class="fas fa-arrow-right"></i></a>
+                            <a href="pages/register.html" class="text-link">
+                                Create an account <i class="fas fa-arrow-right"></i>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -162,17 +184,17 @@
 
     <!-- FOOTER -->
 
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 14px;">
+    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
         <div style="margin-bottom: 10px;">
-            <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
-            <a href="./pages/contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
-            <a href="./pages/faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
-            <a href="pages/register.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Join Us</a>
+            <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 20px;">About Us</a>
+            <a href="./pages/contact_us.html" style="color: #fff; text-decoration: none; margin: 0 20px;">Contact Us</a>
+            <a href="./pages/faq.html" style="color: #fff; text-decoration: none; margin: 0 20px;">FAQ</a>
+            <a href="pages/register.html" style="color: #fff; text-decoration: none; margin: 0 20px;">Join Us</a>
         </div>
         <div style="margin-bottom: 10px;">
             <span>&copy; Thapar University, All rights reserved.</span>
         </div>
-        <div style="font-size: 12px;">
+        <div style="font-size: 16px;">
             <span>Follow us on</span>
             <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
                 <i class="fab fa-facebook-f"></i>

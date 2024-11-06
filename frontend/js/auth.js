@@ -12,7 +12,7 @@ function checkAuth() {
         }
         return;
     } else if (token && !window.location.pathname.includes('dashboard')) {
-        window.location.href = '/pages/dashboard.html'; 
+        window.location.href = 'pages/dashboard.html'; 
     } else if (!token && window.location.pathname.includes('dashboard')) {
         window.location.href = '/index.html';
     }
@@ -45,7 +45,7 @@ if (loginForm) {
             if (data.success) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', JSON.stringify(data.user));
-                window.location.href = '/pages/dashboard.html';
+                window.location.href = '/frontend/pages/dashboard.html';
             } else {
                 errorDiv.textContent = data.message || 'Login failed';
                 errorDiv.classList.remove('hidden');
@@ -82,7 +82,7 @@ if (registerForm) {
             if (data.success) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', JSON.stringify(data.user));
-                window.location.href = '/pages/dashboard.html';
+                window.location.href = '/frontend/pages/dashboard.html';
             } else {
                 errorDiv.textContent = data.message || 'Registration failed';
                 errorDiv.classList.remove('hidden');
