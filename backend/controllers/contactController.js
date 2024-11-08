@@ -30,7 +30,6 @@ exports.submitContact = async (req, res) => {
 
 // @desc    Get all contact submissions
 // @route   GET /api/contact
-// @access  Public
 exports.getContacts = async (req, res) => {
   try {
     const contacts = await Contact.find().sort('-createdAt');

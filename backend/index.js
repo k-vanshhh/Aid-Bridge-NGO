@@ -31,7 +31,7 @@ const checkAuth = async (req, res, next) => {
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/donations', checkAuth, require('./routes/donationRoutes'));
-app.use('/api/users', checkAuth, require('./routes/userRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/contact', require('./routes/contactRoutes'));
 
 const PORT = process.env.PORT || 5000;

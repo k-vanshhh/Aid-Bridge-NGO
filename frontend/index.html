@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div class="hero-section">
+    <div class="hero-section" style="background-image: url('images/index_bg.jpg'); background-size: cover; background-position: center; height: 100vh;">
         <div class="particles-bg"></div>
         <nav class="nav-transparent">
             <div class="nav-content">
@@ -29,7 +29,7 @@
                         Pages <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="./pages/event-details" class="dropdown-item">
+                        <a href="./pages/event_details.html" class="dropdown-item">
                             <i class="fas fa-calendar-alt"></i> Event Details
                         </a>
                         <a href="/volunteer" class="dropdown-item">
@@ -71,7 +71,7 @@
                         <i class="fas fa-star"></i>
                         <span>Trusted by 10,000+ donors worldwide</span>
                     </div>
-                    <h1 class="hero-title">Empowering Communities,<br>Building Bridges of Hope</h1>
+                    <h1 class="hero-title" >Empowering Communities,<br>Building Bridges of Hope</h1>
                     <p class="hero-subtitle">Join our global community of changemakers who are transforming lives through meaningful donations and sustainable impact.</p>
                     
                     <div class="impact-grid">
@@ -99,14 +99,14 @@
                     </div>
 
                     <div class="testimonial-slider">
-                        <div class="testimonial-card active">
+                        <div class="testimonial-card active" style="background-color: rgb(251, 237, 239);">
                             <p>"Aid Bridge made it incredibly easy to support causes I care about."</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="login-form-container floating-effect">
-                    <div class="form-background"></div>
+                    <div class="form-background " style="background-color: transparent;"></div>
                     <div class="login-form-content">
                         <div class="form-header">
                             <div class="icon-container">
@@ -181,10 +181,15 @@
             </div>
         </div>
     </div>
-
-    <!-- FOOTER -->
-
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
+<div>
+    <section class="contact-map">
+        <div class="container-fluid">
+            <div class="google-map google-map__contact">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.9310764504426!2d76.36098282646363!3d30.352908653888345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39102f534a87b5c5%3A0xda1d3ed337e382b3!2sThapar%20University%2C%20Prem%20Nagar%2C%20Patiala%2C%20Punjab%20147004!5e0!3m2!1sen!2sin!4v1728379952540!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>               </div>
+            <!-- /.google-map -->
+        </div><!-- /.container-fluid -->
+    </section><!-- /.contact-map --> 
+    <footer style="background-color: black; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
         <div style="margin-bottom: 10px;">
             <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 20px;">About Us</a>
             <a href="./pages/contact_us.html" style="color: #fff; text-decoration: none; margin: 0 20px;">Contact Us</a>
@@ -210,6 +215,11 @@
             </a>
         </div>
     </footer>
+</div>
+    
+    <!-- FOOTER -->
+
+    
 
 
 
