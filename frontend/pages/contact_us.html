@@ -6,7 +6,8 @@
     <title>Contact Us - Aid Bridge</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+    <link href="../css/styles.css" rel="stylesheet">
+   <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #4F46E5, #7C3AED);
             --secondary-gradient: linear-gradient(135deg, #3B82F6, #2563EB);
@@ -24,18 +25,21 @@
         }
 
         body {
-            background-color: #F9FAFB;
+            background: #f0f2f5;
             line-height: 1.6;
             color: var(--text-primary);
         }
 
-        /* Reusing the provided navigation styles */
         .nav-transparent {
             padding: 1.5rem 2rem;
-            position: relative;
-            z-index: 10;
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .nav-content {
@@ -53,8 +57,8 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,11 +67,16 @@
             color: white;
             font-size: 1.5rem;
             box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            transform: rotate(15deg);
         }
 
         .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 800;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             background-clip: text;
@@ -78,55 +87,45 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-link {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-link:hover {
+            background: rgba(79, 70, 229, 0.1);
+            transform: translateY(-2px);
         }
 
         .nav-cta {
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             background: var(--primary-gradient);
             color: white;
-            border-radius: 9999px;
-            font-weight: 500;
+            border-radius: 12px;
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(79, 70, 229, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
         }
 
-        /* Hero Section */
         .hero-section {
             position: relative;
-            padding: 4rem 0;
+            padding: 8rem 0 6rem;
             background: var(--primary-gradient);
             text-align: center;
             overflow: hidden;
@@ -139,16 +138,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><path fill="%23FFFFFF" fill-opacity="0.05" d="M0 0h800v800H0z"/></svg>') center/cover;
-            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .hero-subtitle {
@@ -159,98 +164,177 @@
             position: relative;
         }
 
-        /* Form Styles */
-        .login-container {
+        .contact-container {
             max-width: 1000px;
             margin: -4rem auto 4rem;
             padding: 0 2rem;
             position: relative;
         }
 
-        .login-form-container {
+        .contact-form-container {
             background: white;
-            padding: 3rem;
-            border-radius: 1.5rem;
+            padding: 3.5rem;
+            border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form-container:hover {
+            transform: translateY(-5px);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
         .form-label {
             display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-size: 0.925rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
             color: var(--text-primary);
+            transition: all 0.3s ease;
         }
 
         .form-input {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #E5E7EB;
-            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            background: #F9FAFB;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+            background: white;
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 0.875rem;
+            padding: 1rem;
             background: var(--primary-gradient);
             color: white;
             border: none;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 500;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
         }
 
-        /* Footer */
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
         footer {
-            background: var(--text-primary);
+            background: #1F2937;
             color: #9CA3AF;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             text-align: center;
         }
 
-        /* Animations */
-        .pulse-animation {
-            animation: pulse 2s infinite;
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        .footer-link {
+            color: #E5E7EB;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* Responsive Design */
+        .footer-link:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: #E5E7EB;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        #messageDiv {
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+        }
+
+        .success {
+            background: #10B981;
+            color: white;
+        }
+
+        .error {
+            background: #EF4444;
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .login-form-container {
+            .contact-form-container {
                 padding: 2rem;
             }
         }
@@ -259,19 +343,51 @@
 <body>
     <!-- Navigation -->
     <nav class="nav-transparent">
-        <div class="nav-content">
+        <div class="nav-content" >
             <div class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-hands-helping"></i>
                 </div>
-                <a href="../index.html" class="logo-text">Aid Bridge</a>
+                <a href="./index.html" class="logo-text" style="font-size:xx-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-style: bold;">Aid Bridge</a>
             </div>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="./about.html" class="nav-link">About Us</a>
-                <a href="./faq.html" class="nav-link">FAQ</a>
-                <a href="./donation_details.html" class="nav-link">Donations</a>
-                <a href="./register.html" class="nav-cta pulse-animation">Join Us <i class="fas fa-arrow-right"></i></a>
+            <div class="nav-links" >
+                <a href="./pages/about.html" class="nav-link">About Us</a>
+                
+                <!-- Pages Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle" style="margin-right: -20px;">
+                    Pages <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="./pages/event_details.html" class="dropdown-item">
+                        <i class="fas fa-calendar-alt"></i> Event Details
+                    </a>
+                    
+                    <a href="pages/faq.html" class="dropdown-item">
+                        <i class="fas fa-question-circle"></i> FAQ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Donations Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle" style="margin-right: -20px;">
+                    Donations <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="pages/donation_details.html" class="dropdown-item">
+                        <i class="fas fa-info-circle"></i> Donation Details
+                    </a>
+                    <a href="./index.html" class="dropdown-item">
+                        <i class="fas fa-heart"></i> Donate Now
+                    </a>
+                </div>
+            </div>
+
+                
+                
+                <a href="pages/contact_us.html" class="nav-link" >Contact Us</a>
+                <a href="pages/register.html" class="nav-cta pulse-animation" >Join Us <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </nav>
@@ -339,30 +455,21 @@
 
     <!-- FOOTER -->
 
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 14px;">
+    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px; margin-top: 4rem;">
         <div style="margin-bottom: 10px;">
-            <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
-            <a href="./pages/contact_us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
-            <a href="./pages/faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
-            <a href="pages/register.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Join Us</a>
+            <a href="about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
+            <a href="contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
+            <a href="faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
         </div>
         <div style="margin-bottom: 10px;">
             <span>&copy; Thapar University, All rights reserved.</span>
         </div>
-        <div style="font-size: 12px;">
-            <span>Follow us on</span>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
+        <div style="font-size: 16px;">
+            <span>Follow us on : </span>
+            <a href="#" style="color: #4e25d3; text-decoration: none; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color: #3b60c4; text-decoration: none; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: #bc0e93; text-decoration: none; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: #3b60c4; text-decoration: none; margin: 0 10px;"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
 

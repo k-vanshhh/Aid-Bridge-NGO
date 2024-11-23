@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const mongoose = require('mongoose');
 
 // Get current user
 exports.getCurrentUser = async (req, res) => {
@@ -57,33 +58,60 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-// Delete user by ID
+
+
+// Delete user controller with improved error handling
 exports.deleteUser = async (req, res) => {
   try {
     const { userId } = req.params;
-
+    
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ 
+        success: false,
+        message: 'Invalid user ID format' 
+      });
+    }
+    
     // Check if user exists
     const user = await User.findById(userId);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ 
+        success: false,
+        message: 'User not found' 
+      });
     }
-
-    // Prevent self-deletion (optional - remove if not needed)
+    
+    // Prevent self-deletion
     if (userId === req.user.id) {
-      return res.status(400).json({ message: 'Cannot delete your own account through this endpoint' });
+      return res.status(400).json({ 
+        success: false,
+        message: 'Cannot delete your own account through this endpoint' 
+      });
     }
-
+    
+    // Check if user has admin role before deletion (optional)
+    if (user.role === 'admin' && req.user.role !== 'superadmin') {
+      return res.status(403).json({
+        success: false,
+        message: 'Only superadmins can delete admin accounts'
+      });
+    }
+    
     // Delete the user
     await User.findByIdAndDelete(userId);
-
+    
+    // Return success response
     res.json({
       success: true,
       message: 'User deleted successfully'
     });
+    
   } catch (error) {
-    if (error.kind === 'ObjectId') {
-      return res.status(400).json({ message: 'Invalid user ID format' });
-    }
-    res.status(500).json({ message: error.message });
+    console.error('Delete user error:', error);
+    res.status(500).json({ 
+      success: false,
+      message: 'Internal server error while deleting user' 
+    });
   }
 };

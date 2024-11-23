@@ -9,9 +9,9 @@ function checkAuth() {
     if (token && user && role) {
         // Admin-specific page access
         if (window.location.pathname.includes('admin.html') && role !== 'admin') {
-            alert("Access restricted to admins only.");
+            //alert("Access restricted to admins only.");
             window.location.href = '/index.html'; // Redirect non-admins away from the admin page
-            return;
+            //return;
         }
 
         // Donor-specific dashboard access
@@ -137,3 +137,5 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Logout button not found");
     }
 });
+
+ 

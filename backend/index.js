@@ -23,7 +23,7 @@ const checkAuth = async (req, res, next) => {
     req.user = { id: decoded.id };
     next();
   } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
+    res.status(401).json({    message: 'Invalid token' });
   }
 };
 

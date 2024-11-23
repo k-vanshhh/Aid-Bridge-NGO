@@ -8,6 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+ 
+
 </head>
 <body>
     <div class="hero-section" style="background-image: url('images/index_bg.jpg'); background-size: cover; background-position: center; height: 100vh;">
@@ -32,9 +34,7 @@
                         <a href="./pages/event_details.html" class="dropdown-item">
                             <i class="fas fa-calendar-alt"></i> Event Details
                         </a>
-                        <a href="/volunteer" class="dropdown-item">
-                            <i class="fas fa-hand-holding-heart"></i> Become a Volunteer
-                        </a>
+                        
                         <a href="pages/faq.html" class="dropdown-item">
                             <i class="fas fa-question-circle"></i> FAQ
                         </a>
@@ -163,7 +163,7 @@
                         </div>
                 
                         <div class="social-login slide-in">
-                            <button class="google-btn" style="background-color: rgba(252, 248, 235, 0.366);">
+                            <button class="google-btn" id="google-btn" style="background-color: rgba(252, 248, 235, 0.366);">
                                 <i class="fab fa-google" ></i> Continue with Google
                             </button>
                         </div>
@@ -189,30 +189,21 @@
             <!-- /.google-map -->
         </div><!-- /.container-fluid -->
     </section><!-- /.contact-map --> 
-    <footer style="background-color: black; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
+    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px; margin-top: 4rem;">
         <div style="margin-bottom: 10px;">
-            <a href="./pages/about.html" style="color: #fff; text-decoration: none; margin: 0 20px;">About Us</a>
-            <a href="./pages/contact_us.html" style="color: #fff; text-decoration: none; margin: 0 20px;">Contact Us</a>
-            <a href="./pages/faq.html" style="color: #fff; text-decoration: none; margin: 0 20px;">FAQ</a>
-            <a href="pages/register.html" style="color: #fff; text-decoration: none; margin: 0 20px;">Join Us</a>
+            <a href="about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
+            <a href="contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
+            <a href="faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
         </div>
         <div style="margin-bottom: 10px;">
             <span>&copy; Thapar University, All rights reserved.</span>
         </div>
         <div style="font-size: 16px;">
-            <span>Follow us on</span>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" style="color: #fff; text-decoration: none; margin: 0 10px;">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
+            <span>Follow us on : </span>
+            <a href="#" style="color: #4e25d3; text-decoration: none; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color: #3b60c4; text-decoration: none; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: #bc0e93; text-decoration: none; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: #3b60c4; text-decoration: none; margin: 0 10px;"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
 </div>
