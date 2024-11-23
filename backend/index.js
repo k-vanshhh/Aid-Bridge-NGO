@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const connectDB = require('./config/db');
 require('dotenv').config();
 
+
+// this comment is to check github push and pull
 const app = express();
 
 // Connect to MongoDB
