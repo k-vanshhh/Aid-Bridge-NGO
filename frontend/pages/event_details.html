@@ -88,10 +88,10 @@
         </nav>
     
         <!-- Hero Section -->
-        <div class="hero-section" style="padding: 2rem 0;">
+        <div class="hero-section" style="padding: 2rem 0; background-image: url(../images/events_bg.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
             <div class="fade-in" style="text-align: center;">
                 <h1 class="hero-title text-white">Our Events</h1>
-                <p>Stay updated on our past and upcoming events that make a difference</p>
+                <p class="text-white">Stay updated on our past and upcoming events that make a difference</p>
             </div>
         
     
@@ -157,10 +157,10 @@
         </div>
     </div>
         <!-- Footer -->
-        <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px; margin-top: 4rem;">
+        <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
             <div style="margin-bottom: 10px;">
                 <a href="about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
-                <a href="contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
+                <a href="contact_us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
                 <a href="faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
             </div>
             <div style="margin-bottom: 10px;">
@@ -176,5 +176,40 @@
         </footer>
     </body>
     </html>
+    <script>
+        // Dropdown functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all dropdown toggles
+                const dropdowns = document.querySelectorAll('.dropdown');
+            
+                // Add click event to each dropdown
+                dropdowns.forEach(dropdown => {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.dropdown')) {
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            </script>
 </body>
 </html>

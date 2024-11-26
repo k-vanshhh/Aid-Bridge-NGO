@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redesigned FAQ Page</title>
+  <title>FAQ Page</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="../css/styles.css" rel="stylesheet">
@@ -12,12 +12,12 @@
   <style>
     /* Base Styles & Variables */
     :root {
-      --primary-gradient: linear-gradient(135deg, #4F46E5, #7C3AED);
+      --primary-gradient: linear-gradient(135deg,  #4F46E5, #7C3AED);
       --accent-color-1: #ffa415;
       --accent-color-2: #fc5528;
-      --accent-color-3: #8139e7;
+      --accent-color-3: #b9a3d7;
       --accent-color-4: #399be7;
-      --text-primary: #1F2937;
+      --text-primary: white;
       --text-secondary: #4B5563;
     }
 
@@ -181,10 +181,10 @@
     </div>
 </nav>
 
-  <div class="faq-section">
+  <div class="faq-section" style="height: 1000px; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../images/index_bg.jpg); background-size: cover;">
     <div class="container">
       <div class="sec-title text-center">
-        <h2 class="sec-title__title">Giving with Confidence: FAQs for Donors</h2>
+        <h2 class="sec-title__title" style="color: white;">Giving with Confidence: FAQs for Donors</h2>
       </div>
       <div class="accordion">
         <div class="accordion-item">
@@ -247,10 +247,10 @@
     </div>
   </div>
 
-  <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px; margin-top: 4rem;">
+  <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; font-size: 17px;">
     <div style="margin-bottom: 10px;">
         <a href="about.html" style="color: #fff; text-decoration: none; margin: 0 15px;">About Us</a>
-        <a href="contact-us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
+        <a href="contact_us.html" style="color: #fff; text-decoration: none; margin: 0 15px;">Contact Us</a>
         <a href="faq.html" style="color: #fff; text-decoration: none; margin: 0 15px;">FAQ</a>
     </div>
     <div style="margin-bottom: 10px;">
@@ -265,7 +265,41 @@
     </div>
 </footer>
 
-
+<script>
+  // Dropdown functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get all dropdown toggles
+          const dropdowns = document.querySelectorAll('.dropdown');
+      
+          // Add click event to each dropdown
+          dropdowns.forEach(dropdown => {
+              const toggle = dropdown.querySelector('.dropdown-toggle');
+              
+              toggle.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  // Close other dropdowns
+                  dropdowns.forEach(otherDropdown => {
+                      if (otherDropdown !== dropdown) {
+                          otherDropdown.classList.remove('active');
+                      }
+                  });
+                  
+                  // Toggle current dropdown
+                  dropdown.classList.toggle('active');
+              });
+          });
+      
+          // Close dropdowns when clicking outside
+          document.addEventListener('click', function(e) {
+              if (!e.target.closest('.dropdown')) {
+                  dropdowns.forEach(dropdown => {
+                      dropdown.classList.remove('active');
+                  });
+              }
+          });
+      });
+      </script>
   <script>
     const accordionItems = document.querySelectorAll('.accordion-item');
 
