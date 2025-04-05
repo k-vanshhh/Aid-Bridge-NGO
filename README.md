@@ -6,8 +6,8 @@ AidBridge is a web-based platform where donors can contribute items or money, an
 
 ## 🌐 Live Demo
 
-> [Visit Live Site](https://aid-bridge-frontend.onrender.com)  
-> Backend: [https://aid-bridge-backend.onrender.com](https://aid-bridge-backend.onrender.com)
+> [Visit Live Site](https://aid-bridge.vercel.app/)  
+> Backend: [https://aid-bridge.vercel.app/](https://aid-bridge.vercel.app/)
 
 ---
 ## 📸 Screenshots
@@ -196,7 +196,3 @@ You can create accounts directly or ask your admin to assign you a role. Example
 5. Open a Pull Request
 
 ---
-
-## 📬 Contact
-
-For questions, drop a message via the [Contact Form](https://aid-bridge-frontend.onrender.com/contact.html) or raise an issue.
